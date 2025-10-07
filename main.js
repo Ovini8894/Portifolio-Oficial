@@ -1,11 +1,11 @@
-// Navegação suave
+// Navegação suave com offset (evita que a página suba sozinha)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (!target) return;
 
-        // offset para navbar fixa e evitar que a página suba sozinha
+        // offset para navbar fixa
         const navbarHeight = 80; // ajuste conforme a altura do seu navbar
         const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - navbarHeight;
@@ -70,7 +70,9 @@ document.querySelectorAll('input, textarea').forEach(el => {
 });
 
 // Função de envio para WhatsApp
-function enviarZap() {
+function enviarZap(e) {
+    e.preventDefault(); // <--- impede o submit padrão do form
+
     // Pegar os valores dos inputs e com .trim retirar os espaços em branco
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -79,6 +81,7 @@ function enviarZap() {
 
     // Verifica se todos os campos estão preenchidos
     if (!name || !email || !subject || !message) {
+        // alert('Por favor, preencha todos os campos.');
         return;
     }
 
@@ -97,4 +100,13 @@ function enviarZap() {
     const linkZap = `https://wa.me/${myNumber}?text=${textoZap}`;
 
     window.open(linkZap, '_blank');
+
 }
+
+// Bloquear scroll automático ao focar inputs/textarea da seção de contato
+document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(input => {
+    input.addEventListener('focus', e => {
+        const scrollY = window.scrollY; // pega posição atual
+        setTimeout(() => window.scrollTo(0, scrollY), 0); // mantém posição
+    });
+});
