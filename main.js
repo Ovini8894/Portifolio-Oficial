@@ -1,11 +1,19 @@
-// Navegação suave com offset (evita que a página suba sozinha, especialmente no mobile)
+// Navegação suave com offset (desktop x mobile)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+
+        let target;
+        // Se for link de contato, detecta mobile
+        if (this.getAttribute('href') === '#contact-section') {
+            const isMobile = window.innerWidth <= 768;
+            target = document.querySelector(isMobile ? '#contact-form' : '#contact-section');
+        } else {
+            target = document.querySelector(this.getAttribute('href'));
+        }
+
         if (!target) return;
 
-        // offset para navbar fixa
         const navbarHeight = 80; // ajuste conforme a altura do seu navbar
         const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - navbarHeight;
@@ -59,7 +67,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.project-card, .skill-item, .contact-method').forEach(el => {
     observer.observe(el);
 });
- 
+
 // Função de envio para WhatsApp
 function enviarZap() {
     // Pegar os valores dos inputs e com .trim retirar os espaços em branco
@@ -68,13 +76,7 @@ function enviarZap() {
     const subject = document.getElementById('subject').value.trim();
     const message = document.getElementById('message').value.trim();
 
-    // Verifica se todos os campos estão preenchidos
-    if (!name || !email || !subject || !message) {
-        // alert('Por favor, preencha todos os campos.');
-        return;
-    }
-
-    // Verifica se o email contém '@'
+    if (!name || !email || !subject || !message) return;
     if (!email.includes('@')) return;
 
     // Meu número do Zap

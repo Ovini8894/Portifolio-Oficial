@@ -62,7 +62,7 @@
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                        <a href="#contact" class="btn btn-secondary">Contato</a>
+                        <a href="#contact-section" class="btn btn-secondary">Contato</a>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -237,72 +237,75 @@
     </section>
 
     <!-- Seção Contato -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Entre em Contato</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Vamos trabalhar juntos!</h3>
-                    <p>
-                        Estou sempre aberto a novos desafios e oportunidades. 
-                        Entre em contato para discutirmos seu próximo projeto.
-                    </p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <span>viniciusdev375@gmail.com</span>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <span>+55 (34) 99684-8050</span>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Minas Gerais, Brasil</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/viniciuscandido375/" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/Ovini8894" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.instagram.com/viniciusdev01/" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required>
-                            <label for="name">Nome</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" required>
-                            <label for="subject">Assunto</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" required></textarea>
-                            <label for="message">Mensagem</label>
-                        </div>
-                        <button onclick="enviarZap(event)" type="submit" class="btn btn-primary">
-                            <span>Enviar Mensagem</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+<section id="contact-section" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="title-underline"></div>
         </div>
-    </section>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Vamos trabalhar juntos!</h3>
+                <p>
+                    Estou sempre aberto a novos desafios e oportunidades. 
+                    Entre em contato para discutirmos seu próximo projeto.
+                </p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <span>viniciusdev375@gmail.com</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <span>+55 (34) 99684-8050</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Minas Gerais, Brasil</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/viniciuscandido375/" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Ovini8894" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/viniciusdev01/" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="contact-form" class="contact-form-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Nome</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Assunto</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Mensagem</label>
+                    </div>
+                    <button onclick="enviarZap(event)" type="submit" class="btn btn-primary">
+                        <span>Enviar Mensagem</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="footer">
