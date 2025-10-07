@@ -59,16 +59,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.project-card, .skill-item, .contact-method').forEach(el => {
     observer.observe(el);
 });
-
-// Scroll automático no foco de inputs/textarea (evita que a página suba no mobile)
-document.querySelectorAll('input, textarea').forEach(el => {
-    el.addEventListener('focus', () => {
-        setTimeout(() => {
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 300); // espera o teclado abrir
-    });
-});
-
+ 
 // Função de envio para WhatsApp
 function enviarZap() {
     // Pegar os valores dos inputs e com .trim retirar os espaços em branco
