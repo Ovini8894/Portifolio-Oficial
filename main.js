@@ -1,4 +1,4 @@
-// Navegação suave com offset (evita que a página suba sozinha)
+// Navegação suave com offset (evita que a página suba sozinha, especialmente no mobile)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -70,9 +70,7 @@ document.querySelectorAll('input, textarea').forEach(el => {
 });
 
 // Função de envio para WhatsApp
-function enviarZap(e) {
-    e.preventDefault(); // <--- impede o submit padrão do form
-
+function enviarZap() {
     // Pegar os valores dos inputs e com .trim retirar os espaços em branco
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -100,13 +98,4 @@ function enviarZap(e) {
     const linkZap = `https://wa.me/${myNumber}?text=${textoZap}`;
 
     window.open(linkZap, '_blank');
-
 }
-
-// Bloquear scroll automático ao focar inputs/textarea da seção de contato
-document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(input => {
-    input.addEventListener('focus', e => {
-        const scrollY = window.scrollY; // pega posição atual
-        setTimeout(() => window.scrollTo(0, scrollY), 0); // mantém posição
-    });
-});
