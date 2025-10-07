@@ -64,23 +64,32 @@
             const message = document.getElementById('message').value.trim();
 
             if (!name || !email || !subject || !message) {
-                alert('Por favor, preencha todos os campos.');
+               // alert('Por favor, preencha todos os campos.');
                 return;
             }
+
+            if (!email.includes('@')) return;
 
             // Meu número do Zap
             const myNumber = '5534996848050';
 
             //montar o texto que é enviado para meu whatsapp
             //o %0A foi removido pois o encodeURIComponent codifica os textos antes de colocar na url
-            const textoZap = encodeURIComponent(`Olá meu nome é ${name}, gostaria de conversar sobre ${subject}, 
-            ${message}
-
-            Meu email é ${email}`);
+            //fpo adicionado quebras de linha para corrigir os problemas de formatação no whatsapp
+            const textoZap = encodeURIComponent(`Olá meu nome é ${name}, gostaria de conversar sobre ${subject},\n${message}\nMeu email é ${email}`);
 
             const linkZap = `https://wa.me/${myNumber}?text=${textoZap}`;
 
             window.open(linkZap, '_blank');
 
-            
+
+            //codigo do gpt pra tentar arrumar o erro do site subindo
+                        document.querySelectorAll('input, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                setTimeout(() => {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300); // espera o teclado abrir
+            });
+            });
+
         }
